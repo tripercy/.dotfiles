@@ -16,16 +16,22 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [ pkgs.neovim
-          pkgs.tmux
-          pkgs.nerdfonts
-          pkgs.corepack_latest
-          pkgs.hugo
-          pkgs.zoxide
-          pkgs.vscode
-          pkgs.iterm2
+        [   pkgs.neovim
+            pkgs.tmux
+            pkgs.nerdfonts
+            pkgs.corepack_latest
+            pkgs.hugo
+            pkgs.zoxide
+            pkgs.vscode
+            pkgs.iterm2
+            pkgs.lazygit
+            pkgs.bat
+            pkgs.zig
         ];
 
+    programs.zsh.promptInit = ''
+        source ${pkgs.spaceship-prompt}/share/zsh/themes/spaceship.zsh-theme
+      '';
       homebrew = 
         {
           enable = true;
@@ -45,13 +51,14 @@
             "the-unarchiver"
             "android-platform-tools"
             "swimat"
+            "miniconda"
           ];
 
           masApps = {
-            Xcode = 497799835;
+            # Xcode = 497799835;
           };
 
-          # onActivation.cleanup = "zap";
+          onActivation.cleanup = "zap";
         };
 
       fonts.packages = 
@@ -60,12 +67,13 @@
 
       system.defaults = {
         dock.autohide = true;
-        dock.orientation = "bottom";
+        dock.tilesize = 48; 
+        dock.orientation = "left";
         dock.persistent-others = [];
         dock.show-recents = false;
-        dock.wvous-bl-corner = 2;
-        dock.wvous-br-corner = 7;
-        dock.wvous-tl-corner = 11;
+        dock.wvous-bl-corner = 1;
+        dock.wvous-br-corner = 1;
+        dock.wvous-tl-corner = 1;
         dock.wvous-tr-corner = 1;
 
         dock.persistent-apps = [
@@ -74,7 +82,6 @@
           "/Applications/Notion.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
           "${pkgs.iterm2}/Applications/iTerm2.app"
-          "/Applications/Zalo.app"
         ];
 
         finder.FXPreferredViewStyle = "clmv";

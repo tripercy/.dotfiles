@@ -1,7 +1,6 @@
 .prony: 
 
 sync:
-	cp user.zshrc ~/user.zshrc
 	cp .zshrc ~/.zshrc
 	cp nix/darwin/* ~/.config/nix/
 
