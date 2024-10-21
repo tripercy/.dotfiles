@@ -27,6 +27,8 @@
             pkgs.lazygit
             pkgs.bat
             pkgs.zig
+            pkgs.dotnet-sdk
+            pkgs.ripgrep
         ];
 
     programs.zsh.promptInit = ''

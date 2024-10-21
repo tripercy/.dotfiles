@@ -17,10 +17,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit snippet OMZ::plugins/gitignore/gitignore.plugin.zsh
 zinit snippet OMZ::lib/theme-and-appearance.zsh
 
-# history substring search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
 # auto complete
 fpath+=$HOME/.my_comp/conda-zsh-completion/
 compinit
