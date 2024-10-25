@@ -29,6 +29,8 @@
             pkgs.zig
             pkgs.dotnet-sdk
             pkgs.ripgrep
+            pkgs.clang-tools
+            pkgs.gdb
         ];
 
     programs.zsh.promptInit = ''
