@@ -20,17 +20,17 @@
             pkgs.tmux
             pkgs.nerdfonts
             pkgs.corepack_latest
-            pkgs.hugo
             pkgs.zoxide
             pkgs.vscode
             pkgs.iterm2
             pkgs.lazygit
             pkgs.bat
             pkgs.zig
-            pkgs.dotnet-sdk
+            pkgs.dotnet-sdk_8
             pkgs.ripgrep
             pkgs.clang-tools
-            pkgs.gdb
+            pkgs.lldb
+            pkgs.docker
         ];
 
     programs.zsh.promptInit = ''
@@ -42,16 +42,13 @@
 
           brews = [
             "mas"
-            "nginx"
             "fzf"
             "rbenv"
             "node"
           ];
 
           casks = [
-            "hammerspoon"
             "notion"
-            "loop"
             "the-unarchiver"
             "android-platform-tools"
             "swimat"
