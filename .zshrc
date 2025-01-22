@@ -19,6 +19,7 @@ zinit snippet OMZ::lib/theme-and-appearance.zsh
 
 # auto complete
 fpath+=$HOME/.my_comp/conda-zsh-completion/
+fpath+=$HOME/.my_comp/zig-shell-completions/
 compinit
 
 # auto cd
@@ -33,6 +34,8 @@ source <(fzf --zsh)
 
 # text editor
 alias vi="nvim"
+
+# Dev space
 
 # dotnet-sdk
 # zsh parameter completion for the dotnet CLI
@@ -54,5 +57,15 @@ _dotnet_zsh_complete()
 
 compdef _dotnet_zsh_complete dotnet
 
+# LLVM
+export CC="$HOMEBREW_PREFIX/opt/llvm/bin/clang"
+export CXX="$HOMEBREW_PREFIX/opt/llvm/bin/clang++"
+export PATH="$HOMEBREW_PREFIX/opt/llvm/bin:$PATH"
+
+# GCC
+alias g++="g++-14"
+alias gcc="gcc-14"
+
+# JAVA
 ##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

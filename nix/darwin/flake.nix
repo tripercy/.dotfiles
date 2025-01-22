@@ -16,7 +16,8 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [   pkgs.neovim
+        [
+            pkgs.neovim
             pkgs.tmux
             pkgs.nerdfonts
             pkgs.corepack_latest
@@ -31,6 +32,9 @@
             pkgs.clang-tools
             pkgs.lldb
             pkgs.docker
+            pkgs.go
+            pkgs.ffmpeg
+            pkgs.fd
         ];
 
     programs.zsh.promptInit = ''
@@ -45,6 +49,9 @@
             "fzf"
             "rbenv"
             "node"
+            "llvm"
+            "libomp"
+            "gcc"
           ];
 
           casks = [
