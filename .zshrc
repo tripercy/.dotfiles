@@ -20,11 +20,20 @@ zinit snippet OMZ::lib/theme-and-appearance.zsh
 # auto complete
 fpath+=$HOME/.my_comp/conda-zsh-completion/
 fpath+=$HOME/.my_comp/zig-shell-completions/
+fpath+=$HOME/.my_comp/rust-zsh-completions/
 compinit
+
+# neofetch
+
+neofetch
 
 # auto cd
 setopt auto_cd
 alias -- -="cd -"
+
+# ls convinient
+alias l="ls -1F"
+alias ll="ls -l"
 
 # zoxide
 eval "$(zoxide init zsh)"
