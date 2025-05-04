@@ -31,9 +31,13 @@ neofetch
 setopt auto_cd
 alias -- -="cd -"
 
-# ls convinient
-alias l="ls -1F"
-alias ll="ls -l"
+# ls convinient (eza wrapper)
+export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
+alias l="eza -1 --icons=auto"
+alias ll="eza -l --icons=auto"
+alias la="eza -1a --icons=auto"
+alias lt="eza -1T --icons=auto"
+alias lg="eza -1T --icons=auto --git-ignore"
 
 # zoxide
 eval "$(zoxide init zsh)"

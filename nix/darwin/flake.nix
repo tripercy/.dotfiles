@@ -19,7 +19,6 @@
           [
             pkgs.neovim
             pkgs.tmux
-            pkgs.nerdfonts
             pkgs.corepack_latest
             pkgs.zoxide
             pkgs.vscode
@@ -36,6 +35,8 @@
             pkgs.ffmpeg
             pkgs.fd
             pkgs.neofetch
+            pkgs.just
+            pkgs.eza
           ];
 
         programs.zsh.promptInit = ''
@@ -44,6 +45,14 @@
         homebrew =
           {
             enable = true;
+            onActivation = {
+              autoUpdate = true;
+              cleanup = "uninstall";
+              upgrade = true;
+            };
+            taps = [
+              "mongodb/brew"
+            ];
 
             brews = [
               "mas"
@@ -57,6 +66,11 @@
               "python@3.11"
               "python@3.12"
               "mpich"
+              {
+                name = "mongodb-community@7.0";
+                restart_service = true;
+                link = true;
+              }
             ];
 
             casks = [
@@ -64,19 +78,16 @@
               "the-unarchiver"
               "android-platform-tools"
               "swimat"
-              "miniconda"
             ];
 
             masApps = {
               # Xcode = 497799835;
             };
-
-            onActivation.cleanup = "zap";
           };
 
         fonts.packages =
           [
-            (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+            pkgs.nerd-fonts.monoid
           ];
 
         system.defaults = {
@@ -102,8 +113,6 @@
           finder.QuitMenuItem = true;
         };
 
-        # Auto upgrade nix package and the daemon service.
-        services.nix-daemon.enable = true;
         # nix.package = pkgs.nix;
 
         # Necessary for using flakes on this system.
