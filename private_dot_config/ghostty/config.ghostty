@@ -1,0 +1,8 @@
+theme = Catppuccin Frappe
+
+window-decoration = none
+window-padding-x = 5
+window-padding-y = 5
+title = 
+
+font-family = "JetBrainsMonoNL Nerd Font Mono"

@@ -1,0 +1,53 @@
+# zinit initialization
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+# history options
+HISTSIZE=500
+HIST_IGNORE_DUPS=1
+
+# plugins
+zinit light Aloxaf/fzf-tab
+zinit light spaceship-prompt/spaceship-prompt
+zinit light zsh-users/zsh-syntax-highlighting
+
+# init completion
+autoload bashcompinit
+autoload -Uz compinit
+bashcompinit
+compinit
+
+# Load custom scripts (order matters)
+sources=(
+    "$XDG_CONFIG_HOME/zsh/paths.zsh"
+    "$XDG_CONFIG_HOME/zsh/aliases.zsh"
+    "$XDG_CONFIG_HOME/zsh/constants.zsh"
+    "$XDG_CONFIG_HOME/zsh/go-apps.zsh"
+    "$XDG_CONFIG_HOME/zsh/eza.zsh" # https://github.com/eza-community/eza
+    "$XDG_CONFIG_HOME/zsh/zoxide.zsh" # https://github.com/ajeetdsouza/zoxide
+    "$XDG_CONFIG_HOME/zsh/fzf.zsh" # https://github.com/junegunn/fzf
+    "$XDG_CONFIG_HOME/zsh/aws-cli.zsh" # https://github.com/aws/aws-cli
+    "$XDG_CONFIG_HOME/zsh/batman.zsh" # https://github.com/sharkdp/bat
+    "$XDG_CONFIG_HOME/zsh/codex.zsh" # https://github.com/openai/codex
+    "$XDG_CONFIG_HOME/zsh/pixi.zsh" # https://github.com/prefix-dev/pixi
+    "$XDG_CONFIG_HOME/zsh/uv.zsh" # https://github.com/astral-sh/uv
+    "$XDG_CONFIG_HOME/zsh/sdkman.zsh" # https://github.com/sdkman/sdkman-cli
+)
+
+# Loop through and source each file
+for file in "${sources[@]}"; do
+    if [[ -f "$file" ]]; then
+        source "$file"
+    fi
+done
+
+# edit command with $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -e
+bindkey '^e' edit-command-line
+
+fpath+=~/.zfunc
+zinit cdreplay -q
