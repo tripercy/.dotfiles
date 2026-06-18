@@ -42,8 +42,10 @@ Here's some note about the config:
   directly from ThePrimeagen's plugin and added a few tweak, so here's a shout
   out. Also, edit target directories in the script to fit your directory
   structure.
+- [tmux-catppuccin](https://github.com/catppuccin/tmux): not installed via TPM,
+  visit the repo for installation command.
 - `<prefix>+<C-o>`: fuzzy search sessions (probably should be written into a script).
-- `<prefix>+n`: tmux-sessionizer, create new session with selected base directory.
+- `<prefix>+<C-n>`: tmux-sessionizer, create new session with selected base directory.
 
 ### catppuccin
 
