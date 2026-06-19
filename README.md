@@ -47,6 +47,23 @@ Here's some note about the config:
 - `<prefix>+<C-o>`: fuzzy search sessions (probably should be written into a script).
 - `<prefix>+<C-n>`: tmux-sessionizer, create new session with selected base directory.
 
+### filesystem
+
+Here's how I organize my filesystem, update the file
+[tmux-sessionizer.sh](./private_dot_local/bin/executable_tmux-sessionizer.sh)
+to match your file organization as needed:
+
+```text
+~/
+├── .config/            # $XDG_CONFIG_HOME
+├── .github.com/        # clones/forks from Github
+└── Documents/
+    ├── work/
+    │   └── <project domain/company name>/
+    ├── side-projects/  # side projects
+    └── personal/       # daily notes, templates, etc.
+```
+
 ### catppuccin
 
 I love [catppuccin](https://github.com/catppuccin), I don't know why it isn't

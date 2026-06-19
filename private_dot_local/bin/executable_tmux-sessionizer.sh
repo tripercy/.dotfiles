@@ -6,7 +6,7 @@ if [[ $# -eq 1 ]]; then
 else
   # if no directory is passed in, use fzf to select one
   # NOTE: change the directories to search in the find command as you wish
-  selected=$(FZF_TMUX=1 find ~/Documents/github ~/Documents/gitlab ~/Documents/test ~/Documents ~/.config ~/github.com -mindepth 1 -maxdepth 1 -type d \
+    selected=$(FZF_TMUX=1 fd . ~/Documents/personal/ ~/Documents/side-projects/ ~/Documents/work/* ~/github.com --min-depth 1 --max-depth 1 --type d \
       | fzf --prompt='Session dir: ' \
         --reverse \
         --header='Available Dirs:' \
