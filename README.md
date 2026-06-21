@@ -63,6 +63,8 @@ to match your file organization as needed:
     ├── side-projects/  # side projects
     └── personal/       # daily notes, templates, etc.
 ```
+- If you are on a Mac and the tmux terminal doesn't work (can't input
+  anything), refer to this [issue](https://github.com/tmux/tmux/issues/2262)
 
 ### catppuccin
 
