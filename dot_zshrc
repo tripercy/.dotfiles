@@ -8,6 +8,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # history options
 HISTSIZE=500
 SAVEHIST=500
+HISTFILE=$HOME/.zsh_history
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY
@@ -23,6 +24,12 @@ autoload bashcompinit
 autoload -Uz compinit
 bashcompinit
 compinit
+
+# edit command with $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -e
+bindkey '^e' edit-command-line
 
 # Load custom scripts (order matters)
 sources=(
@@ -47,11 +54,3 @@ for file in "${sources[@]}"; do
         source "$file"
     fi
 done
-
-# edit command with $EDITOR
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey -e
-bindkey '^e' edit-command-line
-
-zinit cdreplay -q

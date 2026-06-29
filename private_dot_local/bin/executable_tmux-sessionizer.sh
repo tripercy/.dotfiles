@@ -6,14 +6,15 @@ if [[ $# -eq 1 ]]; then
 else
   # if no directory is passed in, use fzf to select one
   # NOTE: change the directories to search in the find command as you wish
-    selected=$(FZF_TMUX=1 fd . ~/Documents/personal/ ~/Documents/side-projects/ ~/Documents/work/* ~/github.com --min-depth 1 --max-depth 1 --type d \
-      | fzf --prompt='Session dir: ' \
+    selected=$(FZF_TMUX=1 fd . ~/Documents/personal/ ~/Documents/side-projects/ ~/Documents/work/* ~/github.com --min-depth 1 --max-depth 1 --type d 2> /dev/null \
+        | fzf --prompt='Session dir: ' \
         --reverse \
         --header='Available Dirs:' \
         --height=100% \
         --border \
         --border=rounded \
         --border-label=' New Tmux Session ' \
+        --cycle \
         --color=label:italic:black)
 fi
 
