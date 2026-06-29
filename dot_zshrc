@@ -43,6 +43,7 @@ sources=(
     "$XDG_CONFIG_HOME/zsh/aws-cli.zsh" # https://github.com/aws/aws-cli
     "$XDG_CONFIG_HOME/zsh/batman.zsh" # https://github.com/sharkdp/bat
     "$XDG_CONFIG_HOME/zsh/codex.zsh" # https://github.com/openai/codex
+    "$XDG_CONFIG_HOME/zsh/drift.zsh" # https://github.com/phlx0/drift
     "$XDG_CONFIG_HOME/zsh/pixi.zsh" # https://github.com/prefix-dev/pixi
     "$XDG_CONFIG_HOME/zsh/uv.zsh" # https://github.com/astral-sh/uv
     "$XDG_CONFIG_HOME/zsh/sdkman.zsh" # https://github.com/sdkman/sdkman-cli
